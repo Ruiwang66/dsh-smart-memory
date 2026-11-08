@@ -67,6 +67,7 @@
     "build": "npm run clean && tsc -p tsconfig.json && node scripts/build-client.mjs",
     "test": "npm run build && node tests/core.test.mjs && node tests/plugin.test.mjs && node tests/extraction.test.mjs && node tests/locale.test.mjs && node tests/client.test.mjs && node tests/client-interaction.test.mjs",
     "pack": "npm pack",
+    "prepare": "npm run build",
     "prepack": "npm run build"
   },
   "devDependencies": {

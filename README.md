@@ -36,14 +36,31 @@ The in-app memory management page is Chinese-first; a full English UI can be add
 
 ## Install
 
-### From a release (recommended)
+> DSH's **Add plugin** dialog is a **text field**, not a file picker. It accepts a package name, a GitHub repository URL, or a local path (tarballs must be written as a `file:` path).
+
+### 1. Local tarball (recommended, no build step)
 
 1. Download `dsh-smart-memory-1.0.0.tgz` from [Releases](https://github.com/Ruiwang66/dsh-smart-memory/releases).
-2. In DSH Desktop: **Settings → Plugins → Add plugin** and select the tarball (or install `file:/absolute/path/dsh-smart-memory-1.0.0.tgz`).
-3. Enable `dsh-smart-memory` and restart DSH.
+2. In DSH Desktop: **Settings → Plugins → Add plugin**, then enter:
+
+   ```
+   file:C:\path\to\dsh-smart-memory-1.0.0.tgz
+   ```
+
+3. Click **Install**, enable `dsh-smart-memory` and restart DSH.
 4. Open **Settings → Smart Memory**.
 
-### From source
+### 2. GitHub repository URL
+
+Enter this in the same field:
+
+```
+https://github.com/Ruiwang66/dsh-smart-memory
+```
+
+DSH fetches the source and runs `npm run build` through the `prepare` script, so GitHub and the npm registry must be reachable. Use method 1 on restricted networks.
+
+### 3. From source
 
 ```sh
 git clone https://github.com/Ruiwang66/dsh-smart-memory.git
@@ -52,7 +69,7 @@ npm ci
 npm pack          # prepack builds first and produces dsh-smart-memory-1.0.0.tgz
 ```
 
-Then install the tarball as in step 2 above.
+Then install the tarball as in method 1.
 
 ### CLI profile
 

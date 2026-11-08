@@ -34,14 +34,31 @@
 
 ## 安装
 
-### 方式一：下载 Release 里的 tgz（推荐）
+> DSH 的「添加插件」是一个**文本输入框**，不是文件选择器，填的是包名、GitHub 仓库地址或本地路径（tarball 也要写成 `file:` 路径）。
+
+### 方式一：本地 tgz（推荐，不需要联网构建）
 
 1. 在 [Releases](https://github.com/Ruiwang66/dsh-smart-memory/releases) 下载 `dsh-smart-memory-1.0.0.tgz`。
-2. 在 DSH Desktop：**设置 → 插件 → 添加插件**，选择该 tarball；或在插件管理器中安装 `file:<绝对路径>/dsh-smart-memory-1.0.0.tgz`。
-3. 启用 `dsh-smart-memory`，重启 DSH（宿主插件需要重启；仅客户端页面可刷新加载）。
+2. 在 DSH Desktop：**设置 → 插件 → 添加插件**，输入框里填：
+
+   ```
+   file:C:\path\to\dsh-smart-memory-1.0.0.tgz
+   ```
+
+3. 点「安装」→ 启用 `dsh-smart-memory` → 重启 DSH（宿主插件需要重启；仅客户端页面可刷新加载）。
 4. 打开 **设置 → 智能记忆**。
 
-### 方式二：从源码打包
+### 方式二：直接填 GitHub 仓库地址
+
+在同一个输入框里填：
+
+```
+https://github.com/Ruiwang66/dsh-smart-memory
+```
+
+安装时会拉取源码并执行 `npm run build`（`prepare` 脚本），因此需要能访问 GitHub 与 npm registry。网络受限时请改用方式一。
+
+### 方式三：从源码打包
 
 ```sh
 git clone https://github.com/Ruiwang66/dsh-smart-memory.git

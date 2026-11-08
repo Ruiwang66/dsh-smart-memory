@@ -1,0 +1,26 @@
+# dependencies
+node_modules/
+
+# build output (produced by `npm run build`; shipped in the npm tarball only)
+lib/
+*.tsbuildinfo
+
+# packaged plugin archives
+*.tgz
+
+# logs and coverage
+*.log
+npm-debug.log*
+coverage/
+.nyc_output/
+
+# local environment
+.env
+.env.*
+!.env.example
+
+# editors / OS
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
