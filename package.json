@@ -1,0 +1,79 @@
+{
+  "name": "dsh-smart-memory",
+  "version": "1.0.0",
+  "description": "DSH 智能记忆 — 为 DeepSeek Harness 提供的全局与项目级长期记忆插件：自动提取、中文混合检索、动态召回与管理界面。Native long-term memory for DeepSeek Harness with global and per-project memory, automatic extraction, hybrid retrieval, dynamic recall and a management UI.",
+  "license": "MIT",
+  "author": "Ruiwang66",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Ruiwang66/dsh-smart-memory.git"
+  },
+  "homepage": "https://github.com/Ruiwang66/dsh-smart-memory#readme",
+  "bugs": {
+    "url": "https://github.com/Ruiwang66/dsh-smart-memory/issues"
+  },
+  "type": "module",
+  "icon": "./icon.svg",
+  "main": "lib/host/index.js",
+  "exports": {
+    ".": {
+      "default": "./lib/host/index.js"
+    },
+    "./client": {
+      "default": "./lib/client/index.js"
+    },
+    "./cordis.patch.yml": "./cordis.patch.yml",
+    "./package.json": "./package.json",
+    "./locale/*.json": "./locale/*.json"
+  },
+  "files": [
+    "lib",
+    "cordis.patch.yml",
+    "icon.svg",
+    "locale",
+    "README.md",
+    "README.zh.md",
+    "LICENSE"
+  ],
+  "keywords": [
+    "dsh",
+    "deepseek-harness",
+    "plugin",
+    "memory",
+    "long-term-memory",
+    "project-memory"
+  ],
+  "engines": {
+    "node": ">=22",
+    "dsh": ">=0.2.1-rc.3 <0.3.0"
+  },
+  "dsh": {
+    "manifestVersion": 1,
+    "verifiedAgainst": "0.2.2-rc.1",
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "inject": [
+        "@deepseek-ai/dsh-client-runtime",
+        "@deepseek-ai/dsh-client-ui-settings",
+        "@deepseek-ai/dsh-client-ui-settings-general"
+      ],
+      "platform": "web"
+    }
+  },
+  "scripts": {
+    "clean": "node -e \"require('node:fs').rmSync('lib', { recursive: true, force: true })\"",
+    "build": "npm run clean && tsc -p tsconfig.json && node scripts/build-client.mjs",
+    "test": "npm run build && node tests/core.test.mjs && node tests/plugin.test.mjs && node tests/extraction.test.mjs && node tests/locale.test.mjs && node tests/client.test.mjs && node tests/client-interaction.test.mjs",
+    "pack": "npm pack",
+    "prepack": "npm run build"
+  },
+  "devDependencies": {
+    "@types/node": "^24.19.2",
+    "jsdom": "^26.1.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "typescript": "^5.9.3"
+  }
+}

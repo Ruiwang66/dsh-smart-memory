@@ -1,0 +1,7 @@
+{
+  "meta": {
+    "title": "智能记忆",
+    "description": "为 DeepSeek Harness 提供全局与项目级长期记忆：自动提取、中文混合检索、动态召回和记忆管理界面。",
+    "detail": "README.zh.md"
+  }
+}
