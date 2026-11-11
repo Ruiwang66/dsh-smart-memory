@@ -26,7 +26,7 @@
 - **双层记忆**：用户全局记忆跨会话、跨项目共享；项目记忆只属于当前项目。
 - **自动记忆**：在每轮对话结束后异步提取长期信息，不阻塞正常对话；支持失败重试、任务去重、崩溃恢复。
 - **自动召回**：通过 DSH 原生 `ctx.systemPrompt.section()` 在每个模型步骤动态注入相关记忆，不修改聊天历史或系统配置。
-- **中文混合检索**：BM25 + 中文字符 unigram/bigram + 标签 + 重要度 + 固定 + 时间衰减，本地完成，不依赖云端 Embedding。
+- **中文混合检索**：结合 BM25、中文字符 unigram/bigram、标签、重要度、固定状态和时间衰减进行排序；检索在本地完成，不依赖云端 Embedding 服务。
 - **11 个模型工具**：`memory_search`、`memory_save`、`memory_update`、`memory_delete`、`memory_list`、`memory_pin`、`memory_unpin`、`memory_stats`、`memory_export`、`memory_import`、`memory_forget`。
 - **完整管理界面**：设置 → 智能记忆，包含概览、全局记忆、项目记忆、自动记忆设置；中文界面，支持搜索、新增、编辑、删除、固定、锁定、导出、导入、清空。
 - **原生持久化**：使用 DSH `storage-domain` + JSON 后端，数据位于 `$DSH_HOME/storages/dsh_smart_memory`，不写入会话日志。
